@@ -44,6 +44,9 @@ class File implements FileInterface
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -84,6 +87,9 @@ class File implements FileInterface
         return null !== $this->path;
     }    
 
+    /**
+     * @return string
+     */
     public function getName(): ?string
     {
         return $this->name;
@@ -94,6 +100,9 @@ class File implements FileInterface
         $this->name = $name;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -104,6 +113,9 @@ class File implements FileInterface
         $this->description = $description;
     }
 
+    /**
+     * @return UploaderInterface
+     */
     public function getAuthor(): ?UploaderInterface
     {
         return $this->author;
@@ -114,6 +126,9 @@ class File implements FileInterface
         $this->author = $author;
     }
 
+    /**
+     * @return FileableInterface
+     */
     public function getFileSubject(): ?FileableInterface
     {
         return $this->fileSubject;

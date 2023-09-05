@@ -36,7 +36,7 @@ final class UploadedFilePathGenerator implements FilePathGeneratorInterface
         return sprintf('%s/%s/%s', $createdAt, $this->dirFromaCamelCase($subjectClass), substr($path, 4));
     }
 
-    private function dirFromaCamelCase($input) {
+    private function dirFromaCamelCase(string $input): string {
         $pattern = '!([A-Z][A-Z0-9]*(?=$|[A-Z][a-z0-9])|[A-Za-z][a-z0-9]+)!';
         preg_match_all($pattern, $input, $matches);
         $ret = $matches[0];
