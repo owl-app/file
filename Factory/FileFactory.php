@@ -10,6 +10,11 @@ use Owl\Component\File\Model\UploaderInterface;
 use Owl\Bridge\SyliusResource\Factory\Resource\ParentableFactory;
 use Owl\Component\File\Model\FileableInterface;
 
+/**
+ * @template T of FileInterface
+ *
+ * @implements FileFactoryInterface<T>
+ */
 final class FileFactory extends ParentableFactory implements FileFactoryInterface
 {
     /** @var FactoryInterface */

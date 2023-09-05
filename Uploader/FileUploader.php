@@ -8,7 +8,7 @@ use Gaufrette\Filesystem;
 use Owl\Component\File\Generator\FilePathGeneratorInterface;
 use Owl\Component\File\Generator\UploadedFilePathGenerator;
 use Owl\Component\File\Model\FileInterface;
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Webmozart\Assert\Assert;
 
 class FileUploader implements FileUploaderInterface
@@ -16,7 +16,7 @@ class FileUploader implements FileUploaderInterface
     /** @var Filesystem */
     protected $filesystem;
 
-    /** @var ImagePathGeneratorInterface */
+    /** @var FilePathGeneratorInterface */
     protected $imagePathGenerator;
 
     public function __construct(
@@ -33,10 +33,10 @@ class FileUploader implements FileUploaderInterface
             return;
         }
 
+        /** @var UploadedFile $file */
         $file = $image->getFile();
 
-        /** @var File $file */
-        Assert::isInstanceOf($file, File::class);
+        Assert::isInstanceOf($file, UploadedFile::class);
 
         if (null !== $image->getPath() && $this->has($image->getPath())) {
             $this->remove($image->getPath());
