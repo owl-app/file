@@ -85,7 +85,7 @@ class File implements FileInterface
     public function hasPath(): bool
     {
         return null !== $this->path;
-    }    
+    }
 
     /**
      * @return string

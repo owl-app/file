@@ -21,7 +21,7 @@ class FileUploader implements FileUploaderInterface
 
     public function __construct(
         Filesystem $filesystem,
-        ?FilePathGeneratorInterface $imagePathGenerator
+        ?FilePathGeneratorInterface $imagePathGenerator,
     ) {
         $this->filesystem = $filesystem;
         $this->imagePathGenerator = $imagePathGenerator ?? new UploadedFilePathGenerator();
@@ -51,7 +51,7 @@ class FileUploader implements FileUploaderInterface
 
         $this->filesystem->write(
             $image->getPath(),
-            file_get_contents($image->getFile()->getPathname())
+            file_get_contents($image->getFile()->getPathname()),
         );
     }
 
